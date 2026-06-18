@@ -1,19 +1,244 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>HY Investment OS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HY Investment OS</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#0F1117;
+    color:#F5F7FA;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+.header{
+    text-align:center;
+    padding:30px 20px 10px;
+}
+
+.header h1{
+    margin:0;
+    color:#D4AF37;
+    font-size:28px;
+}
+
+.header p{
+    color:#AEB5C0;
+    margin-top:8px;
+}
+
+.container{
+    padding:15px;
+    padding-bottom:100px;
+}
+
+.card{
+    background:#1A1D26;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:15px;
+}
+
+.score{
+    text-align:center;
+}
+
+.score-number{
+    font-size:56px;
+    font-weight:800;
+    color:#00D084;
+}
+
+.score-text{
+    font-size:20px;
+    font-weight:700;
+}
+
+.label{
+    color:#AEB5C0;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.box{
+    background:#252936;
+    border-radius:12px;
+    padding:12px;
+}
+
+.box-title{
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.up{
+    color:#00D084;
+}
+
+.mid{
+    color:#D4AF37;
+}
+
+.down{
+    color:#FF6B6B;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #2C3140;
+}
+
+.row:last-child{
+    border-bottom:none;
+}
+
+.bottom{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#151821;
+    border-top:1px solid #2C3140;
+    display:flex;
+    justify-content:space-around;
+    padding:12px 0 24px;
+}
+
+.bottom div{
+    text-align:center;
+    font-size:12px;
+    color:#B8BDC7;
+}
+
+</style>
+
 </head>
-<body style="background:#0F1117;color:white;font-family:Arial;text-align:center;padding-top:100px;">
+<body>
+
+<div class="header">
     <h1>HY Investment OS</h1>
     <p>Building Wealth For HaYoon</p>
+</div>
 
-    <hr style="width:300px;">
+<div class="container">
 
-    <h2>W&B Radar Active</h2>
+    <div class="card score">
+        <div class="label">TODAY MARKET SCORE</div>
+        <div class="score-number">78</div>
+        <div class="score-text up">선별 진입</div>
+    </div>
 
-    <p>SSD</p>
-    <p>광통신</p>
-    <p>전력</p>
+    <div class="card">
+        <div class="label">시장 체온판</div>
+
+        <div class="grid">
+
+            <div class="box">
+                <div class="box-title">NASDAQ</div>
+                <div class="up">우호적</div>
+            </div>
+
+            <div class="box">
+                <div class="box-title">VIX</div>
+                <div class="up">안정</div>
+            </div>
+
+            <div class="box">
+                <div class="box-title">금리</div>
+                <div class="mid">중립</div>
+            </div>
+
+            <div class="box">
+                <div class="box-title">DXY</div>
+                <div class="up">완화</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="label">W&B RADAR</div>
+
+        <div class="row">
+            <span>SSD</span>
+            <strong class="up">92</strong>
+        </div>
+
+        <div class="row">
+            <span>광통신</span>
+            <strong class="up">88</strong>
+        </div>
+
+        <div class="row">
+            <span>전력</span>
+            <strong class="up">85</strong>
+        </div>
+
+        <div class="row">
+            <span>냉각</span>
+            <strong class="mid">82</strong>
+        </div>
+
+        <div class="row">
+            <span>양자</span>
+            <strong class="mid">74</strong>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="label">오늘의 관심 종목</div>
+
+        <div class="row">
+            <span>MU</span>
+            <strong class="up">91</strong>
+        </div>
+
+        <div class="row">
+            <span>MRVL</span>
+            <strong class="up">87</strong>
+        </div>
+
+        <div class="row">
+            <span>WDC</span>
+            <strong class="mid">84</strong>
+        </div>
+
+        <div class="row">
+            <span>STX</span>
+            <strong class="mid">82</strong>
+        </div>
+
+        <div class="row">
+            <span>VRT</span>
+            <strong class="mid">79</strong>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="bottom">
+    <div>🏠<br>Home</div>
+    <div>📡<br>W&B</div>
+    <div>📈<br>Swing</div>
+    <div>💼<br>Portfolio</div>
+    <div>📒<br>Journal</div>
+</div>
 
 </body>
 </html>
