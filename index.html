@@ -6,103 +6,80 @@
 <title>HY Investment OS</title>
 
 <style>
-
 body{
     margin:0;
     background:#0F1117;
     color:#F5F7FA;
     font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
-
 .header{
     text-align:center;
-    padding:30px 20px 10px;
+    padding:28px 18px 8px;
 }
-
 .header h1{
     margin:0;
     color:#D4AF37;
     font-size:28px;
 }
-
 .header p{
     color:#AEB5C0;
     margin-top:8px;
 }
-
 .container{
     padding:15px;
-    padding-bottom:100px;
+    padding-bottom:105px;
 }
-
 .card{
     background:#1A1D26;
     border-radius:18px;
     padding:18px;
     margin-bottom:15px;
 }
-
+.label{
+    color:#AEB5C0;
+    font-size:13px;
+    margin-bottom:10px;
+    letter-spacing:0.5px;
+}
 .score{
     text-align:center;
 }
-
 .score-number{
     font-size:56px;
     font-weight:800;
     color:#00D084;
 }
-
 .score-text{
     font-size:20px;
     font-weight:700;
 }
-
-.label{
-    color:#AEB5C0;
-    font-size:13px;
-    margin-bottom:10px;
-}
-
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:10px;
 }
-
 .box{
     background:#252936;
     border-radius:12px;
     padding:12px;
 }
-
 .box-title{
     font-weight:700;
     margin-bottom:5px;
 }
-
-.up{
-    color:#00D084;
-}
-
-.mid{
-    color:#D4AF37;
-}
-
-.down{
-    color:#FF6B6B;
-}
-
+.up{color:#00D084;}
+.mid{color:#D4AF37;}
+.down{color:#FF6B6B;}
 .row{
     display:flex;
     justify-content:space-between;
+    gap:12px;
     padding:10px 0;
     border-bottom:1px solid #2C3140;
 }
-
-.row:last-child{
-    border-bottom:none;
-}
-
+.row:last-child{border-bottom:none;}
+.page{display:none;}
+.page.active{display:block;}
 .bottom{
     position:fixed;
     bottom:0;
@@ -114,16 +91,45 @@ body{
     justify-content:space-around;
     padding:12px 0 24px;
 }
-
-.bottom div{
+.nav-item{
     text-align:center;
     font-size:12px;
     color:#B8BDC7;
 }
-
+.nav-item.active{
+    color:#D4AF37;
+    font-weight:700;
+}
+input, textarea, button{
+    width:100%;
+    box-sizing:border-box;
+    border:none;
+    border-radius:12px;
+    padding:13px;
+    margin-top:8px;
+    font-size:15px;
+    font-family:inherit;
+}
+input, textarea{
+    background:#252936;
+    color:#F5F7FA;
+}
+textarea{
+    min-height:90px;
+}
+button{
+    background:#D4AF37;
+    color:#0F1117;
+    font-weight:800;
+}
+.small{
+    color:#AEB5C0;
+    font-size:13px;
+    line-height:1.5;
+}
 </style>
-
 </head>
+
 <body>
 
 <div class="header">
@@ -133,112 +139,201 @@ body{
 
 <div class="container">
 
-    <div class="card score">
-        <div class="label">TODAY MARKET SCORE</div>
-        <div class="score-number">78</div>
-        <div class="score-text up">선별 진입</div>
-    </div>
+    <section id="home" class="page active">
+        <div class="card score">
+            <div class="label">TODAY MARKET SCORE</div>
+            <div class="score-number">78</div>
+            <div class="score-text up">선별 진입</div>
+        </div>
 
-    <div class="card">
-        <div class="label">시장 체온판</div>
-
-        <div class="grid">
-
-            <div class="box">
-                <div class="box-title">NASDAQ</div>
-                <div class="up">우호적</div>
+        <div class="card">
+            <div class="label">시장 체온판</div>
+            <div class="grid">
+                <div class="box"><div class="box-title">NASDAQ</div><div class="up">우호적</div></div>
+                <div class="box"><div class="box-title">VIX</div><div class="up">안정</div></div>
+                <div class="box"><div class="box-title">금리</div><div class="mid">중립</div></div>
+                <div class="box"><div class="box-title">DXY</div><div class="up">완화</div></div>
             </div>
-
-            <div class="box">
-                <div class="box-title">VIX</div>
-                <div class="up">안정</div>
-            </div>
-
-            <div class="box">
-                <div class="box-title">금리</div>
-                <div class="mid">중립</div>
-            </div>
-
-            <div class="box">
-                <div class="box-title">DXY</div>
-                <div class="up">완화</div>
-            </div>
-
         </div>
 
-    </div>
+        <div class="card">
+            <div class="label">오늘의 관심 종목</div>
+            <div class="row"><span>MU</span><strong class="up">91</strong></div>
+            <div class="row"><span>MRVL</span><strong class="up">87</strong></div>
+            <div class="row"><span>WDC</span><strong class="mid">84</strong></div>
+            <div class="row"><span>STX</span><strong class="mid">82</strong></div>
+            <div class="row"><span>VRT</span><strong class="mid">79</strong></div>
+        </div>
+    </section>
 
-    <div class="card">
-
-        <div class="label">W&B RADAR</div>
-
-        <div class="row">
-            <span>SSD</span>
-            <strong class="up">92</strong>
+    <section id="radar" class="page">
+        <div class="card">
+            <div class="label">W&B RADAR</div>
+            <div class="row"><span>SSD</span><strong class="up">92</strong></div>
+            <div class="row"><span>광통신</span><strong class="up">88</strong></div>
+            <div class="row"><span>전력</span><strong class="up">85</strong></div>
+            <div class="row"><span>냉각</span><strong class="mid">82</strong></div>
+            <div class="row"><span>양자</span><strong class="mid">74</strong></div>
         </div>
 
-        <div class="row">
-            <span>광통신</span>
-            <strong class="up">88</strong>
+        <div class="card">
+            <div class="label">W&B Framework</div>
+            <p class="small">White Team: AI, 양자, 우주, 장수과학, 로봇</p>
+            <p class="small">Black Team: SSD, 광통신, 전력, 냉각, 데이터센터, 네트워크</p>
+        </div>
+    </section>
+
+    <section id="swing" class="page">
+        <div class="card">
+            <div class="label">SWING CENTER</div>
+            <div class="row"><span>MU</span><strong class="up">감시</strong></div>
+            <div class="row"><span>MRVL</span><strong class="up">감시</strong></div>
+            <div class="row"><span>WDC</span><strong class="mid">분할</strong></div>
+            <div class="row"><span>STX</span><strong class="mid">분할</strong></div>
         </div>
 
-        <div class="row">
-            <span>전력</span>
-            <strong class="up">85</strong>
+        <div class="card">
+            <div class="label">매매 원칙</div>
+            <p class="small">1. 과열 추격 금지</p>
+            <p class="small">2. 병목 + 촉매 + 눌림목이 겹칠 때 진입</p>
+            <p class="small">3. 손절 기준 없는 매수 금지</p>
+        </div>
+    </section>
+
+    <section id="portfolio" class="page">
+        <div class="card">
+            <div class="label">PORTFOLIO 입력</div>
+            <input id="tickerInput" placeholder="종목 예: MU">
+            <input id="qtyInput" type="number" placeholder="수량 예: 10">
+            <input id="priceInput" type="number" placeholder="매수가 예: 145">
+            <button onclick="savePortfolio()">저장</button>
         </div>
 
-        <div class="row">
-            <span>냉각</span>
-            <strong class="mid">82</strong>
+        <div class="card">
+            <div class="label">보유 종목</div>
+            <div id="portfolioList"></div>
+        </div>
+    </section>
+
+    <section id="journal" class="page">
+        <div class="card">
+            <div class="label">JOURNAL 입력</div>
+            <input id="journalTicker" placeholder="종목 예: MU">
+            <textarea id="journalText" placeholder="왜 샀는가? 왜 지금인가? 목표와 손절 기준은?"></textarea>
+            <button onclick="saveJournal()">일지 저장</button>
         </div>
 
-        <div class="row">
-            <span>양자</span>
-            <strong class="mid">74</strong>
+        <div class="card">
+            <div class="label">투자 일지</div>
+            <div id="journalList"></div>
         </div>
-
-    </div>
-
-    <div class="card">
-
-        <div class="label">오늘의 관심 종목</div>
-
-        <div class="row">
-            <span>MU</span>
-            <strong class="up">91</strong>
-        </div>
-
-        <div class="row">
-            <span>MRVL</span>
-            <strong class="up">87</strong>
-        </div>
-
-        <div class="row">
-            <span>WDC</span>
-            <strong class="mid">84</strong>
-        </div>
-
-        <div class="row">
-            <span>STX</span>
-            <strong class="mid">82</strong>
-        </div>
-
-        <div class="row">
-            <span>VRT</span>
-            <strong class="mid">79</strong>
-        </div>
-
-    </div>
+    </section>
 
 </div>
 
 <div class="bottom">
-    <div>🏠<br>Home</div>
-    <div>📡<br>W&B</div>
-    <div>📈<br>Swing</div>
-    <div>💼<br>Portfolio</div>
-    <div>📒<br>Journal</div>
+    <div class="nav-item active" onclick="showPage('home', this)">🏠<br>Home</div>
+    <div class="nav-item" onclick="showPage('radar', this)">📡<br>W&B</div>
+    <div class="nav-item" onclick="showPage('swing', this)">📈<br>Swing</div>
+    <div class="nav-item" onclick="showPage('portfolio', this)">💼<br>Portfolio</div>
+    <div class="nav-item" onclick="showPage('journal', this)">📒<br>Journal</div>
 </div>
+
+<script>
+function showPage(pageId, element){
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+
+    document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+    element.classList.add('active');
+}
+
+function getPortfolio(){
+    return JSON.parse(localStorage.getItem('hyPortfolio') || '[]');
+}
+
+function savePortfolio(){
+    const ticker = document.getElementById('tickerInput').value.trim().toUpperCase();
+    const qty = document.getElementById('qtyInput').value;
+    const price = document.getElementById('priceInput').value;
+
+    if(!ticker || !qty || !price){
+        alert('종목, 수량, 매수가를 모두 입력해줘.');
+        return;
+    }
+
+    const portfolio = getPortfolio();
+    portfolio.push({ticker, qty, price, date:new Date().toLocaleDateString()});
+    localStorage.setItem('hyPortfolio', JSON.stringify(portfolio));
+
+    document.getElementById('tickerInput').value = '';
+    document.getElementById('qtyInput').value = '';
+    document.getElementById('priceInput').value = '';
+
+    renderPortfolio();
+}
+
+function renderPortfolio(){
+    const list = document.getElementById('portfolioList');
+    const portfolio = getPortfolio();
+
+    if(portfolio.length === 0){
+        list.innerHTML = '<p class="small">아직 저장된 종목이 없어.</p>';
+        return;
+    }
+
+    list.innerHTML = portfolio.map((item, index) => `
+        <div class="row">
+            <span>${item.ticker}<br><small>${item.date}</small></span>
+            <strong>${item.qty}주 / $${item.price}</strong>
+        </div>
+    `).join('');
+}
+
+function getJournal(){
+    return JSON.parse(localStorage.getItem('hyJournal') || '[]');
+}
+
+function saveJournal(){
+    const ticker = document.getElementById('journalTicker').value.trim().toUpperCase();
+    const text = document.getElementById('journalText').value.trim();
+
+    if(!ticker || !text){
+        alert('종목과 내용을 입력해줘.');
+        return;
+    }
+
+    const journal = getJournal();
+    journal.unshift({ticker, text, date:new Date().toLocaleDateString()});
+    localStorage.setItem('hyJournal', JSON.stringify(journal));
+
+    document.getElementById('journalTicker').value = '';
+    document.getElementById('journalText').value = '';
+
+    renderJournal();
+}
+
+function renderJournal(){
+    const list = document.getElementById('journalList');
+    const journal = getJournal();
+
+    if(journal.length === 0){
+        list.innerHTML = '<p class="small">아직 저장된 일지가 없어.</p>';
+        return;
+    }
+
+    list.innerHTML = journal.map(item => `
+        <div style="border-bottom:1px solid #2C3140; padding:12px 0;">
+            <strong>${item.ticker}</strong>
+            <p class="small">${item.date}</p>
+            <p>${item.text}</p>
+        </div>
+    `).join('');
+}
+
+renderPortfolio();
+renderJournal();
+</script>
 
 </body>
 </html>
